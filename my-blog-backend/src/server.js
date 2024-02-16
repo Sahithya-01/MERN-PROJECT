@@ -1,24 +1,6 @@
 import express from "express";
 import { db, connectToDB } from "./db.js";
 
-// let artclesInfo = [
-//   {
-//     name: "learn-react",
-//     upvotes: 0,
-//     comments: [],
-//   },
-//   {
-//     name: "learn-node",
-//     upvotes: 0,
-//     comments: [],
-//   },
-//   {
-//     name: "mongodb",
-//     upvotes: 0,
-//     comments: [],
-//   },
-// ];
-
 const app = express();
 app.use(express.json());
 
@@ -54,7 +36,7 @@ app.put("/api/articles/:name/upvote", async (req, res) => {
   const article = await db.collection("articles").findOne({ name });
 
   if (article) {
-    res.send(`The ${name} article now has ${article.upvotes} upvotes!!`);
+    res.json(article);
   } else {
     res.send("The article doesn't exist");
   }
@@ -68,7 +50,7 @@ app.post("/api/articles/:name/comments", async (req, res) => {
     .updateOne({ name }, { $push: { comments: { postedBy, text } } });
   const article = await db.collection("articles").findOne({ name });
   if (article) {
-    res.send(article.comments);
+    res.json(article);
   } else {
     res.send("The article doesn't exist");
   }
