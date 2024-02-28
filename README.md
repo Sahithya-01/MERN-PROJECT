@@ -1,5 +1,1 @@
-This is a MERN stack project where you can have Home Page, Articles Page and About Page. You can navigate between these pages. You can Upvote articles and can also write comments under it. 
-
-
-The front-end application is created using React,created a server with Node.js and Express, stored data in MongoDB,authenticated users with Firebase Authentication,
-and connected our front- and back-end with Axios and host a full-stack app on Google Cloud Platform.
+The project involves a MERN stack blog application. The project includes various pages such as the homepage and the about page. Key functionalities have been implemented, such as loading articles, displaying them, allowing users to upvote articles using an upvote button, and enabling users to add comments through a dedicated comment form. Additionally, user authentication has been implemented, allowing users to log in and out of the application. This ensures proper identification of users when adding comments and restricts the number of upvotes each user can give to an article.
